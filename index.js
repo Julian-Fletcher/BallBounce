@@ -1,12 +1,3 @@
-class square{
-    //Construct the object????
-    constructor(startX, startY){
-        this.posX = startX;
-        this.posY = startY;
-        this.color = Math.floor(Math.random()*16777215).toString(16); //Generate a random color
-    }
-}
-
 //Get the boundary of the plane
 let plane = $('#plane'); //Select the plane 
 let boundary = plane[0].getBoundingClientRect();
@@ -20,9 +11,9 @@ function spawnSquare(X, Y){
     //Set background to random color
     newSquare.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
     
-    //Spawn position relative to bounding box
-    relativeX = X - boundary.left;
-    relativeY = Y - boundary.top;
+    //Spawn position relative to bounding box -- approx cgitenter
+    relativeX = X - boundary.left + 14; //Topright is +28
+    relativeY = Y - boundary.top + 10;  // Topright is +20
 
     //Set the position of the square
     newSquare.style.position = 'absolute';
@@ -36,15 +27,10 @@ function spawnSquare(X, Y){
 $(document).on('click', function(event){
     let X = event.clientX;
     let Y = event.clientY;
-    let validClick = X >= boundary.left && X <= boundary.right &&
-                      Y >= boundary.top && Y <= boundary.bottom;
+    let validClick = X >= boundary.left && X <= boundary.right && Y >= boundary.top && Y <= boundary.bottom;
 
     if(validClick){
         spawnSquare(X, Y);
     }
     console.log('Cursor position: X= ' + X + ', Y= ' + Y);
-});
-
-$(document).ready(function(){
-
 });
