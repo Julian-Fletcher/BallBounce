@@ -1,15 +1,10 @@
 .plane{
     margin: 20px;
-    border: 1px;
-    border-style: solid;
-    border-color: black;
-    height: 95vh;
+    border: 1px solid black;
 }
 
 .square{
     height: 20px;
     width: 20px;
-    border-radius: 1px;
-    border-style: solid;
-    border-color: black;
+    border: 1px solid black;
 }
